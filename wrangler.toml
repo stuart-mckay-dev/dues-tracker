@@ -1,0 +1,41 @@
+name = "dues-tracker"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+# No *.workers.dev URL. Cloudflare Access protects the custom-domain route only,
+# so a live workers.dev subdomain would be an unauthenticated way into the club's
+# finances. See docs/DEPLOYMENT.md and docs/DECISIONS.md (D3).
+workers_dev = false
+
+# custom_domain = true makes Wrangler create and manage the DNS record for
+# exactly this hostname on deploy, and provision its certificate. It touches no
+# other record in the zone.
+routes = [
+  { pattern = "dues.example.com", custom_domain = true }  # replace with your hostname
+]
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dues-tracker"
+database_id = "00000000-0000-0000-0000-000000000000"  # from `wrangler d1 create`
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "BACKUPS"
+bucket_name = "dues-tracker-backups"
+
+[triggers]
+crons = [
+  "0 15 * * *",  # daily dues-posting check (mid-morning in America/Los_Angeles)
+  "0 16 * * 1",  # weekly backup to R2, Monday
+]
+
+[vars]
+# ACCESS_TEAM_DOMAIN and ACCESS_AUD are set per-environment.
+# Local dev reads them from .dev.vars; production uses `wrangler secret put`.

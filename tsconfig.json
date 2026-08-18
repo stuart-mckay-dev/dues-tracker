@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    // Runtime types come from the generated worker-configuration.d.ts
+    // (`npm run types`), which supersedes @cloudflare/workers-types and stays
+    // in sync with wrangler.toml.
+    "types": ["@types/node", "vite/client", "@cloudflare/vitest-pool-workers/types"],
+
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["src", "web", "test", "*.config.ts", "worker-configuration.d.ts"]
+}

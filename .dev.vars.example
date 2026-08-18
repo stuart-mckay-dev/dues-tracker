@@ -1,0 +1,10 @@
+# Copy to .dev.vars (git-ignored) for local development.
+# See docs/DEPLOYMENT.md steps 4-5.
+
+ACCESS_TEAM_DOMAIN="yourteam.cloudflareaccess.com"
+ACCESS_AUD="the-64-char-hex-aud-tag-from-the-access-application"
+
+# Local dev only: skip Access JWT verification so `wrangler dev` works without
+# a real Access token. NEVER set this in production — it disables auth entirely.
+DEV_SKIP_ACCESS="1"
+DEV_ACTOR_EMAIL="treasurer@example.com"
