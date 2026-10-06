@@ -11,6 +11,35 @@ TypeScript · Hono · Preact + Vite · Cloudflare Workers, D1, R2 · Cloudflare 
 
 The full deployment and operations procedure is in **[RUNBOOK.md](RUNBOOK.md)**.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="docs/screenshots/01-dashboard.png" alt="Dashboard: collected this month and year, total outstanding, bad-standing and paid-ahead totals, the next dues posting date, and lists of members in bad standing, falling behind and paid ahead" width="200"></td>
+    <td><img src="docs/screenshots/02-roster.png" alt="Roster sorted worst-first with search and filters for behind, paid ahead and exempt" width="200"></td>
+    <td><img src="docs/screenshots/03-member-ledger.png" alt="Member ledger: a $75 credit, good for 3 more months, covered through December 2026, with a two-column debit and credit ledger and running balance" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Dashboard</sub></td>
+    <td align="center"><sub>Roster, worst first</sub></td>
+    <td align="center"><sub>Member ledger and standing</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/04-record-entry.png" alt="Record-an-entry sheet: $47.83 entered, with the warning that it rounds to $48 because the club tracks whole dollars" width="200"></td>
+    <td><img src="docs/screenshots/05-behind-report.png" alt="Printable report of members in bad standing and falling behind, with months behind and amounts owed" width="200"></td>
+    <td><img src="docs/screenshots/06-club-ledger.png" alt="Club-wide ledger filtered by type and date range, with CSV export" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Recording a payment ($47.83 rounds to $48)</sub></td>
+    <td align="center"><sub>Delinquency report</sub></td>
+    <td align="center"><sub>Club ledger and CSV export</sub></td>
+  </tr>
+</table>
+
+<img src="docs/screenshots/07-desktop-member.png" alt="The member ledger on a desktop browser, with a memo column added to the ledger table" width="640">
+
+<sub>Running locally (<code>wrangler dev</code> with local D1) with a fictional club and members seeded through the API at the placeholder rate of $25/month. Phone views at 390 × 844; desktop at 1280 px wide.</sub>
+
 ---
 
 ## What it does
